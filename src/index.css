@@ -21,7 +21,7 @@ a {
 .field {
   width: 100%;
   margin: 1rem 0;
-  padding: 1rem
+  padding: 1rem;
 }
 
 .input {
@@ -42,13 +42,13 @@ a {
 }
 
 .btn-secondary {
-  background: #845EC2;
+  background: #845ec2;
   color: #fff;
   transition: box-shadow 0.5s ease-in-out;
 }
 
 .btn:hover {
-  box-shadow: 0px 2px 3px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.5);
 }
 
 .container {
