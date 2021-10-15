@@ -1,5 +1,5 @@
 import { createLogger } from 'redux-logger';
 
-const logger =  createLogger({});
+const logger = createLogger({});
 
 export default logger;
