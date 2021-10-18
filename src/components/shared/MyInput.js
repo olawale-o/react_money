@@ -6,10 +6,12 @@ const MyInput = ({
   type, placeholder, ...props
 }) => {
   const [field, meta] = useField(props);
-  const { name, onBlur, onChange } = field;
+  const {
+    name, onBlur, onChange, value,
+  } = field;
   return (
     <div className="field">
-      <input type={type} className="input" name={name} placeholder={placeholder} onBlur={onBlur} onChange={onChange} required />
+      <input type={type} className="input" name={name} placeholder={placeholder} onBlur={onBlur} onChange={onChange} value={value} required />
       {
         meta.touched && meta.error && (
           <div>

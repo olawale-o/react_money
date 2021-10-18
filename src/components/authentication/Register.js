@@ -11,7 +11,7 @@ const Register = () => {
       initialValues={register}
       validationSchema={registerSchema}
     >
-      {({ isSubmitting }) => (
+      {({ isSubmitting, dirty, isValid }) => (
         <div className="authentication">
           <div className="authentication-container">
             <Form className="auth-form">
@@ -27,7 +27,7 @@ const Register = () => {
               <button
                 type="submit"
                 className="btn btn-secondary"
-                disabled={isSubmitting}
+                disabled={isSubmitting || !(dirty && isValid)}
               >
                 Create
               </button>
