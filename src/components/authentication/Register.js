@@ -1,38 +1,47 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Formik, Form } from 'formik';
+import MyInput from '../shared/MyInput';
+import { validationSchema, initialValues } from '../../schema/Schema';
 
 const Register = () => {
+  const { registerSchema } = validationSchema;
+  const { register } = initialValues;
   return (
-    <div className="authentication">
-      <div className="authentication-container">
-        <form className="auth-form">
-          <div className="form-header">
-            <p>Create account</p>
+    <Formik
+      initialValues={register}
+      validationSchema={registerSchema}
+    >
+      {({ isSubmitting }) => (
+        <div className="authentication">
+          <div className="authentication-container">
+            <Form className="auth-form">
+              <div className="form-header">
+                <p>Create account</p>
+              </div>
+              <MyInput name="firstName" type="text" placeholder="First name" />
+              <MyInput name="lastName" type="text" placeholder="Last name" />
+              <MyInput name="email" type="email" placeholder="Email" />
+              <MyInput name="password" type="password" placeholder="Password" />
+              <MyInput name="confirmPassword" type="password" placeholder="Confirm password" />
+
+              <button
+                type="submit"
+                className="btn btn-secondary"
+                disabled={isSubmitting}
+              >
+                Create
+              </button>
+              <div className="form-footer">
+                <p>
+                  <span>Already have an account? </span>
+                  <a href="hi">Log in</a>
+                </p>
+              </div>
+            </Form>
           </div>
-          <div className="field">
-            <input className="input" placeholder="First name" />
-          </div>
-          <div className="field">
-            <input className="input" placeholder="Last name" />
-          </div>
-          <div className="field">
-            <input className="input" placeholder="Email" />
-          </div>
-          <div className="field">
-            <input className="input" placeholder="Password" />
-          </div>
-          <div className="field">
-            <input className="input" placeholder="Confirm password" />
-          </div>
-          <input type="submit" className="btn btn-secondary" value="Create" />
-          <div className="form-footer">
-            <p>
-              <span>Already have an account? </span>
-              <a href="hi">Log in</a>
-            </p>
-          </div>
-        </form>
-      </div>
-    </div>
+        </div>
+      )}
+    </Formik>
   );
 };
 
