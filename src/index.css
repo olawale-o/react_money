@@ -18,6 +18,11 @@ a {
   text-decoration: none;
 }
 
+button:disabled {
+  background: #e5e0ec;
+  cursor: default;
+}
+
 .field {
   width: 100%;
   margin: 1rem 0;
