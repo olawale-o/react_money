@@ -1,11 +1,3 @@
-
-
-const Dashboard = () => {
-  return (
-    <div>
-      Dashboard works 
-    </div>
-  )
-}
+const Dashboard = () => <div> Dashboard works </div>;
 
 export default Dashboard;
