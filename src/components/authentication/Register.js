@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import MyInput from '../shared/MyInput';
 import { validationSchema, initialValues } from '../../schema/Schema';
@@ -34,7 +35,14 @@ const Register = () => {
               <div className="form-footer">
                 <p>
                   <span>Already have an account? </span>
-                  <a href="hi">Log in</a>
+                  <Link
+                    to={{
+                      pathname: '/login',
+                      state: { fromRegister: true },
+                    }}
+                  >
+                    Login
+                  </Link>
                 </p>
               </div>
             </Form>
