@@ -33,6 +33,12 @@ button:disabled:hover {
   padding: 1rem;
 }
 
+.field-error {
+  color: #cf0136;
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+
 .input {
   width: 100%;
   padding: 1rem 0.5rem;

@@ -14,7 +14,7 @@ const MyInput = ({
       <input type={type} className="input" name={name} placeholder={placeholder} onBlur={onBlur} onChange={onChange} value={value} required />
       {
         meta.touched && meta.error && (
-          <div>
+          <div className="field-error">
             { meta.error }
           </div>
         )
