@@ -12,6 +12,10 @@ export const validationSchema = {
     confirmPassword: Yup.string().test('is-password', 'Password does not match',
       (value, context) => value === context.parent.password),
   }),
+  loginSchema: Yup.object().shape({
+    email,
+    password,
+  }),
 };
 
 export const initialValues = {
@@ -21,5 +25,9 @@ export const initialValues = {
     email: '',
     password: '',
     confirmPassword: '',
+  },
+  login: {
+    email: '',
+    password: '',
   },
 };
