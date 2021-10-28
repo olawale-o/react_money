@@ -1,18 +1,37 @@
-import React from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import {
+  useLocation, Link, useHistory, withRouter,
+} from 'react-router-dom';
 import { Formik, Form } from 'formik';
+import PropTypes from 'prop-types';
 import MyInput from '../shared/MyInput';
 import { validationSchema, initialValues } from '../../schema/Schema';
+import { authenticate } from '../../redux/auth/auth_async_action';
+import { loginRoute } from '../../routes/auth';
 
-const Login = () => {
+const Login = ({ handleRequest }) => {
   const { loginSchema } = validationSchema;
   const { login } = initialValues;
   const location = useLocation();
+  const { push } = useHistory();
   console.log(location);
+
+  const auth = async ({ email, password }) => {
+    const data = {
+      endPoint: '/login',
+      method: 'POST',
+      body: {
+        email,
+        password,
+      },
+    };
+    await handleRequest(data, push);
+  };
   return (
     <Formik
       initialValues={login}
       validationSchema={loginSchema}
+      onSubmit={auth}
     >
       {({ isSubmitting, dirty, isValid }) => (
         <div className="authentication">
@@ -51,4 +70,12 @@ const Login = () => {
   );
 };
 
-export default Login;
+const mapDispatchToProps = (dispatch) => ({
+  handleRequest: (value, push) => dispatch(authenticate(value, loginRoute, push)),
+});
+
+export default connect(null, mapDispatchToProps)(withRouter(Login));
+
+Login.propTypes = {
+  handleRequest: PropTypes.func.isRequired,
+};

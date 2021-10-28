@@ -1,3 +1,22 @@
-const Dashboard = () => <div> Dashboard works </div>;
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-export default Dashboard;
+const Dashboard = ({ token }) => {
+  console.log(token);
+  return (
+    <div>
+      Logged in as:
+      { token }
+    </div>
+  );
+};
+
+const mapStateToProps = ({ auth: { token } }) => (
+  { token }
+);
+
+export default connect(mapStateToProps, null)(Dashboard);
+
+Dashboard.propTypes = {
+  token: PropTypes.string.isRequired,
+};
