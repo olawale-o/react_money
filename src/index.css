@@ -18,10 +18,25 @@ a {
   text-decoration: none;
 }
 
+button:disabled {
+  background: #e5e0ec;
+  cursor: default;
+}
+
+button:disabled:hover {
+  box-shadow: none;
+}
+
 .field {
   width: 100%;
   margin: 1rem 0;
   padding: 1rem;
+}
+
+.field-error {
+  color: #cf0136;
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
 }
 
 .input {

@@ -1,10 +1,18 @@
 import './App.css';
+import { Switch, Route } from 'react-router-dom';
 import Register from './components/authentication/Register';
+import Dashboard from './components/Dashboard/Dashboard';
+import Login from './components/authentication/Login';
 
 function App() {
   return (
     <div className="App">
-      <Register />
+      <Switch>
+        <Route path="/" component={Register} exact />
+        <Route path="/register" component={Register} exact />
+        <Route path="/login" component={Login} exact />
+        <Route path="/dashboard" component={Dashboard} exact />
+      </Switch>
     </div>
   );
 }
