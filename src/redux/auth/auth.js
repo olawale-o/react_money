@@ -1,25 +1,27 @@
-export const LOADING = 'auth/auth/LOADING';
-export const REGISTER = 'auth/auth/REGISTER';
+export const SETUSER = 'auth/auth/SETUSER';
+export const SETTOKEN = 'auth/auth/SETTOKEN';
 
 const initialState = {
-  loading: false,
   user: null,
+  token: null,
 };
 
-export const loading = (payload) => ({
-  type: LOADING,
+export const setUser = (payload) => ({
+  type: SETUSER,
   payload,
 });
 
-export const register = (payload) => ({
-  type: REGISTER,
+export const setToken = (payload) => ({
+  type: SETTOKEN,
   payload,
 });
 
 const authReducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case REGISTER:
-      return { ...state, loading: false, user: action.payload };
+    case SETUSER:
+      return { ...state, user: action.payload };
+    case SETTOKEN:
+      return { ...state, token: action.payload };
     default:
       return state;
   }
