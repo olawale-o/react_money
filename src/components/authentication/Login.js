@@ -1,7 +1,5 @@
 import { connect } from 'react-redux';
-import {
-  useLocation, Link, useHistory, withRouter,
-} from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import PropTypes from 'prop-types';
 import MyInput from '../shared/MyInput';
@@ -12,9 +10,10 @@ import { loginRoute } from '../../routes/auth';
 const Login = ({ handleRequest }) => {
   const { loginSchema } = validationSchema;
   const { login } = initialValues;
-  const location = useLocation();
-  const { push } = useHistory();
-  console.log(location);
+  const navigate = useNavigate();
+  const push = (route) => {
+    navigate(route, { replace: true });
+  };
 
   const auth = async ({ email, password }) => {
     const data = {
@@ -74,7 +73,7 @@ const mapDispatchToProps = (dispatch) => ({
   handleRequest: (value, push) => dispatch(authenticate(value, loginRoute, push)),
 });
 
-export default connect(null, mapDispatchToProps)(withRouter(Login));
+export default connect(null, mapDispatchToProps)(Login);
 
 Login.propTypes = {
   handleRequest: PropTypes.func.isRequired,

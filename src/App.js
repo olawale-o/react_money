@@ -1,5 +1,5 @@
 import './App.css';
-import { Switch, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Register from './components/authentication/Register';
 import Dashboard from './components/Dashboard/Dashboard';
 import Login from './components/authentication/Login';
@@ -7,12 +7,12 @@ import Login from './components/authentication/Login';
 function App() {
   return (
     <div className="App">
-      <Switch>
-        <Route path="/" component={Register} exact />
-        <Route path="/register" component={Register} exact />
-        <Route path="/login" component={Login} exact />
-        <Route path="/dashboard" component={Dashboard} exact />
-      </Switch>
+      <Routes>
+        <Route path="/" element={<Register />} exact />
+        <Route path="/register" element={<Register />} exact />
+        <Route path="/login" element={<Login />} exact />
+        <Route path="/dashboard" element={<Dashboard />} exact />
+      </Routes>
     </div>
   );
 }
