@@ -1,6 +1,6 @@
+import React from 'react';
 import { useField } from 'formik';
 import PropType from 'prop-types';
-import React from 'react';
 
 const MyInput = ({
   type, placeholder, ...props
