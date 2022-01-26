@@ -1,4 +1,4 @@
-const formModel = {
+export default {
   name: 'SavingsAccount',
   formField: {
     firstName: {
@@ -20,30 +20,28 @@ const formModel = {
       },
     },
     nextOfKinFirstName: {
-      name: 'firstName',
+      name: 'nextOfKinFirstName',
       error: {
         required: 'First name is required',
       },
     },
     nextOfKinLastName: {
-      name: 'lastName',
+      name: 'nextOfKinLastName',
       error: {
         required: 'Last name is required',
       },
     },
     nextOfKinPhoneNumber: {
-      name: 'phoneNumber',
+      name: 'nextOfKinPhoneNumber',
       error: {
         required: 'Phone number is required',
       },
     },
     nextOfKinEmail: {
-      name: 'email',
+      name: 'nextOfKinEmail',
       error: {
         required: 'Email is required',
       },
     },
   },
 };
-
-export default formModel;

@@ -1,4 +1,4 @@
-import formModel from './model';
+import formModel from './formModel';
 
 const {
   formField: {

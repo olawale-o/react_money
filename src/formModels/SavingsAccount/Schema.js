@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import formModel from './model';
+import formModel from './formModel';
 
 const {
   formField: {
@@ -15,15 +15,15 @@ const {
 
 export default [
   Yup.object().shape({
-    firstName: Yup.string().required(`${firstName.error.required}`).label('First name'),
-    lastName: Yup.string().required(`${lastName.error.required}`).label('Last name'),
-    phoneNumber: Yup.string().required(`${phoneNumber.error.required}`).label('Phone number'),
+    [firstName.name]: Yup.string().required(`${firstName.error.required}`).label('First name'),
+    [lastName.name]: Yup.string().required(`${lastName.error.required}`).label('Last name'),
+    [phoneNumber.name]: Yup.string().required(`${phoneNumber.error.required}`).label('Phone number'),
   }),
 
   Yup.object().shape({
-    nextOfKinFirstName: Yup.string().required(`${nextOfKinFirstName.error.required}`).label('First name'),
-    nextOfKinLastName: Yup.string().required(`${nextOfKinLastName.error.required}`).label('Last name'),
-    nextOfKinPhoneNumber: Yup.string().required(`${nextOfKinPhoneNumber.error.required}`).label('Phone number'),
-    nextOfKinEmail: Yup.string().email(`${nextOfKinEmail.error.required}`).required('Email is required').label('Email'),
+    [nextOfKinFirstName.name]: Yup.string().required(`${nextOfKinFirstName.error.required}`).label('First name'),
+    [nextOfKinLastName.name]: Yup.string().required(`${nextOfKinLastName.error.required}`).label('Last name'),
+    [nextOfKinPhoneNumber.name]: Yup.string().required(`${nextOfKinPhoneNumber.error.required}`).label('Phone number'),
+    [nextOfKinEmail.name]: Yup.string().email(`${nextOfKinEmail.error.required}`).required('Email is required').label('Email'),
   }),
 ];
