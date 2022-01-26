@@ -25,9 +25,9 @@
   background: #fff;
   margin-bottom: 1rem;
   border-radius: 10px;
-  box-shadow: -6px 1px 31px -20px rgba(0,0,0,0.55);
-  -webkit-box-shadow: -6px 1px 31px -20px rgba(0,0,0,0.55);
-  -moz-box-shadow: -6px 1px 31px -20px rgba(0,0,0,0.55);
+  box-shadow: -6px 1px 31px -20px rgba(0, 0, 0, 0.55);
+  -webkit-box-shadow: -6px 1px 31px -20px rgba(0, 0, 0, 0.55);
+  -moz-box-shadow: -6px 1px 31px -20px rgba(0, 0, 0, 0.55);
 }
 
 .action__item-card {
@@ -48,11 +48,9 @@
   color: var(--primary-color);
 }
 
-
 @media screen and (min-width: 768px) {
   .dashboard__container {
     max-width: 70rem;
     margin: 0 auto;
   }
-  
 }
