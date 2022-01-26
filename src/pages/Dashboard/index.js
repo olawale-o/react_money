@@ -1,24 +1,25 @@
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+// import { connect } from 'react-redux';
+// import PropTypes from 'prop-types';
 import './Dashboard.css';
 
-const Dashboard = ({ token }) => {
-  console.log(token);
+const Dashboard = () => {
+  console.log('dashboard');
   return (
     <div className="dashboard">
       <div className="dashboard__container">
-        <a href="/" className="action__item">
+        <Link to="/" className="action__item">
           <div className="action__item-card">
             <i className="bx bx-transfer" />
             <h5>Transfer</h5>
           </div>
-        </a>
-        <a href="/" className="action__item">
+        </Link>
+        <Link to="/account" className="action__item">
           <div className="action__item-card">
             <i className="bx bx-money-withdraw" />
             <h5>Create Account</h5>
           </div>
-        </a>
+        </Link>
         <a href="/" className="action__item">
           <div className="action__item-card">
             <i className="bx bx-data" />
@@ -33,7 +34,7 @@ const Dashboard = ({ token }) => {
         </a>
         <a href="/" className="action__item">
           <div className="action__item-card">
-            <i className="bx bxl-mastercard" />
+            <i className="bx bx-credit-card-alt" />
             <h5>Card</h5>
           </div>
         </a>
@@ -48,12 +49,13 @@ const Dashboard = ({ token }) => {
   );
 };
 
-const mapStateToProps = ({ auth: { token } }) => (
-  { token }
-);
+// const mapStateToProps = ({ auth: { token } }) => (
+//   { token }
+// );
 
-export default connect(mapStateToProps, null)(Dashboard);
+export default Dashboard;
+// export default connect(mapStateToProps, null)(Dashboard);
 
-Dashboard.propTypes = {
-  token: PropTypes.string.isRequired,
-};
+// Dashboard.propTypes = {
+//   token: PropTypes.string.isRequired,
+// };
