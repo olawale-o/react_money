@@ -3,8 +3,14 @@ import { Formik, Form } from 'formik';
 import PropTypes from 'prop-types';
 import { validationSchema, initialValues } from '../schema/Schema';
 import MyInput from './shared/MyInput';
+import Error from './shared/Error';
 
-const Login = ({ onFocus, onLogin, isFocus }) => {
+const Login = ({
+  onFocus,
+  onLogin,
+  isFocus,
+  error,
+}) => {
   const { loginSchema } = validationSchema;
   const { login } = initialValues;
 
@@ -37,6 +43,7 @@ const Login = ({ onFocus, onLogin, isFocus }) => {
               <span>Dont have an account</span>
               <button type="button" className="switch-btn" onClick={() => onReset(handleReset)}>Sign up</button>
             </div>
+            {error && <Error error={error} />}
             <MyInput type="email" name="email" placeholder="Email" />
             <MyInput name="password" type="password" placeholder="Password" />
             <button
@@ -55,8 +62,13 @@ const Login = ({ onFocus, onLogin, isFocus }) => {
 
 export default Login;
 
+Login.defaultProps = {
+  error: null,
+};
+
 Login.propTypes = {
   onFocus: PropTypes.func.isRequired,
   onLogin: PropTypes.func.isRequired,
   isFocus: PropTypes.bool.isRequired,
+  error: PropTypes.string,
 };
