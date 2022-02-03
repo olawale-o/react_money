@@ -4,14 +4,17 @@ import { Navigate } from 'react-router-dom';
 import PropType from 'prop-types';
 import authSelector from '../../redux/auth/auth_selector';
 
-
-const PrivateRoute = ({ children }) => {
+const PublicRoute = ({ children }) => {
   const { user } = useSelector(authSelector);
-  return user ? children : <Navigate to="/login" />;
+
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
+  if (user) return <Navigate to={from} />;
+  return children;
 };
 
-export default PrivateRoute;
+export default PublicRoute;
 
-PrivateRoute.propTypes = {
+PublicRoute.propTypes = {
   children: PropType.node.isRequired,
 };
