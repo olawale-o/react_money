@@ -7,8 +7,9 @@ import SignUp from '../../components/SignUp';
 import AuthSideBar from '../../components/AuthSideBar';
 import { loginRoute } from '../../routes/auth';
 import { authenticate } from '../../redux/auth/auth_async_action';
+import { setError } from '../../redux/global/global';
 
-const User = ({ handleRequest }) => {
+const User = ({ handleRequest, error, resetError }) => {
   const [isFocus, setIsFocus] = React.useState(false);
   const navigate = useNavigate();
   const push = (route) => {
@@ -16,6 +17,9 @@ const User = ({ handleRequest }) => {
   };
 
   const onFocus = () => {
+    if (error) {
+      resetError();
+    }
     setIsFocus((isFocus) => !isFocus);
   };
 
@@ -38,8 +42,8 @@ const User = ({ handleRequest }) => {
   return (
     <div className="authentication-container">
       <div className={`container ${isFocus ? 'slide' : ''}`}>
-        <Login onFocus={onFocus} onLogin={login} isFocus={isFocus} />
-        <SignUp onFocus={onFocus} onRegister={register} isFocus={isFocus} />
+        <Login onFocus={onFocus} onLogin={login} isFocus={isFocus} error={error} />
+        <SignUp onFocus={onFocus} onRegister={register} isFocus={isFocus} error={error} />
         <AuthSideBar />
       </div>
     </div>
@@ -48,10 +52,21 @@ const User = ({ handleRequest }) => {
 
 const mapDispatchToProps = (dispatch) => ({
   handleRequest: (value, push) => dispatch(authenticate(value, loginRoute, push)),
+  resetError: () => dispatch(setError(null)),
 });
 
-export default connect(null, mapDispatchToProps)(User);
+const mapStateToProps = (state) => ({
+  error: state.global.error,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(User);
+
+User.defaultProps = {
+  error: null,
+};
 
 User.propTypes = {
   handleRequest: PropTypes.func.isRequired,
+  error: PropTypes.string,
+  resetError: PropTypes.func.isRequired,
 };
