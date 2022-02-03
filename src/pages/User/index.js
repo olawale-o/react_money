@@ -35,8 +35,25 @@ const User = ({ handleRequest, error, resetError }) => {
     await handleRequest(data, push);
   };
 
-  const register = () => {
-    console.log('register');
+  const register = async ({
+    firstName,
+    lastName,
+    email,
+    password,
+    confirmPassword,
+  }) => {
+    const data = {
+      endPoint: '/register',
+      method: 'POST',
+      body: {
+        first_name: firstName,
+        last_name: lastName,
+        email,
+        password,
+        password_confirmation: confirmPassword,
+      },
+    };
+    await handleRequest(data, push);
   };
 
   return (

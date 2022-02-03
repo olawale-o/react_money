@@ -1,10 +1,4 @@
-const BASE_URI = 'http://localhost:8000/api';
-const headers = {
-  headers: {
-    'Content-type': 'application/json;charset=UTF-8',
-    Accept: 'application/json',
-  },
-};
+import { BASE_URI, headers } from './index';
 
 const connect = async (args) => {
   const {

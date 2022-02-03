@@ -19,8 +19,20 @@ const SignUp = ({
     }
     onFocus();
   };
-  const auth = () => {
-    onRegister();
+  const auth = async ({
+    firstName,
+    lastName,
+    email,
+    password,
+    confirmPassword,
+  }) => {
+    await onRegister({
+      firstName,
+      lastName,
+      email,
+      password,
+      confirmPassword,
+    });
   };
   return (
     <Formik
