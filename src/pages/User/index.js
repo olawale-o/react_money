@@ -26,7 +26,6 @@ const User = ({ handleRequest, error, resetError }) => {
   const login = async ({ email, password }) => {
     const data = {
       endPoint: '/login',
-      method: 'POST',
       body: {
         email,
         password,
@@ -44,7 +43,6 @@ const User = ({ handleRequest, error, resetError }) => {
   }) => {
     const data = {
       endPoint: '/register',
-      method: 'POST',
       body: {
         first_name: firstName,
         last_name: lastName,

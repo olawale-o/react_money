@@ -4,7 +4,7 @@ import { setUser, setToken } from './auth';
 export const authenticate = (data, cb, push) => (
   async function login(dispatch) {
     try {
-      const { response } = await cb(data);
+      const response = await cb(data);
       const { user, token, success } = response;
       if (!success) {
         dispatch(setError(response.message));
