@@ -2,8 +2,6 @@ import formModel from './formModel';
 
 const {
   formField: {
-    firstName,
-    lastName,
     phoneNumber,
     nextOfKinFirstName,
     nextOfKinLastName,
@@ -13,8 +11,6 @@ const {
 } = formModel;
 
 export default {
-  [firstName.name]: '',
-  [lastName.name]: '',
   [phoneNumber.name]: '',
   [nextOfKinFirstName.name]: '',
   [nextOfKinLastName.name]: '',

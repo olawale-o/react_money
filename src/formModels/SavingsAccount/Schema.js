@@ -3,8 +3,6 @@ import formModel from './formModel';
 
 const {
   formField: {
-    firstName,
-    lastName,
     phoneNumber,
     nextOfKinFirstName,
     nextOfKinLastName,
@@ -15,8 +13,6 @@ const {
 
 export default [
   Yup.object().shape({
-    [firstName.name]: Yup.string().required(`${firstName.error.required}`).label('First name'),
-    [lastName.name]: Yup.string().required(`${lastName.error.required}`).label('Last name'),
     [phoneNumber.name]: Yup.string().required(`${phoneNumber.error.required}`).label('Phone number'),
   }),
 

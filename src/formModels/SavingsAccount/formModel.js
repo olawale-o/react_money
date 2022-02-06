@@ -1,18 +1,6 @@
 export default {
   name: 'SavingsAccount',
   formField: {
-    firstName: {
-      name: 'firstName',
-      error: {
-        required: 'First name is required',
-      },
-    },
-    lastName: {
-      name: 'lastName',
-      error: {
-        required: 'Last name is required',
-      },
-    },
     phoneNumber: {
       name: 'phoneNumber',
       error: {
