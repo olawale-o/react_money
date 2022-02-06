@@ -1,6 +1,18 @@
 export default {
   name: 'SavingsAccount',
   formField: {
+    account: {
+      name: 'accountType',
+      error: {
+        required: 'Please select an account',
+      },
+    },
+    bank: {
+      name: 'bankName',
+      error: {
+        required: 'Please select a bank',
+      },
+    },
     phoneNumber: {
       name: 'phoneNumber',
       error: {
