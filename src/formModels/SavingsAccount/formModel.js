@@ -43,5 +43,23 @@ export default {
         required: 'Email is required',
       },
     },
+    nepaBill: {
+      name: 'nepaBill',
+      error: {
+        required: 'Nepa bill is required',
+      },
+    },
+    identity: {
+      name: 'identity',
+      error: {
+        required: 'Identity is required',
+      },
+    },
+    signature: {
+      name: 'signature',
+      error: {
+        required: 'Signature is required',
+      },
+    },
   },
 };
