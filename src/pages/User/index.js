@@ -1,20 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { useNavigate } from 'react-router-dom';
 import Login from '../../components/Login';
 import SignUp from '../../components/SignUp';
 import AuthSideBar from '../../components/AuthSideBar';
 import { loginRoute } from '../../routes/auth';
 import { authenticate } from '../../redux/auth/auth_async_action';
 import { setError } from '../../redux/global/global';
+import useNavigator from '../../helper';
 
 const User = ({ handleRequest, error, resetError }) => {
   const [isFocus, setIsFocus] = React.useState(false);
-  const navigate = useNavigate();
-  const push = (route) => {
-    navigate(route, { replace: true });
-  };
+  const { pushAndReplace } = useNavigator(true);
 
   const onFocus = () => {
     if (error) {
@@ -31,7 +28,7 @@ const User = ({ handleRequest, error, resetError }) => {
         password,
       },
     };
-    await handleRequest(data, push);
+    await handleRequest(data, pushAndReplace);
   };
 
   const register = async ({
@@ -51,7 +48,7 @@ const User = ({ handleRequest, error, resetError }) => {
         password_confirmation: confirmPassword,
       },
     };
-    await handleRequest(data, push);
+    await handleRequest(data, pushAndReplace);
   };
 
   return (
