@@ -2,12 +2,12 @@ import React from 'react';
 import { useField } from 'formik';
 import PropType from 'prop-types';
 
-const MyInput = ({
-  type, placeholder, ...props
+const MyFile = ({
+  type, setFieldValue, ...props
 }) => {
   const [field, meta] = useField(props);
   const {
-    name, onBlur, onChange, value,
+    name, onBlur,
   } = field;
   return (
     <div className="field">
@@ -15,10 +15,10 @@ const MyInput = ({
         type={type}
         className="input"
         name={name}
-        placeholder={placeholder}
         onBlur={onBlur}
-        onChange={onChange}
-        value={value}
+        onChange={(e) => {
+          setFieldValue(name, e.target.files[0]);
+        }}
         required
       />
       {
@@ -31,13 +31,13 @@ const MyInput = ({
     </div>
   );
 };
-export default MyInput;
+export default MyFile;
 
-MyInput.defaultProps = {
-  placeholder: '',
+MyFile.defaultProps = {
+  setFieldValue: () => {},
 };
 
-MyInput.propTypes = {
+MyFile.propTypes = {
   type: PropType.string.isRequired,
-  placeholder: PropType.string,
+  setFieldValue: PropType.func,
 };
