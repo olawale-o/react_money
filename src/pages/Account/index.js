@@ -1,5 +1,4 @@
-import { Link } from 'react-router-dom';
-import Savings from './Savings';
+import { Link, Outlet } from 'react-router-dom';
 import './Account.css';
 
 const Account = () => {
@@ -10,24 +9,24 @@ const Account = () => {
       <nav className="account__nav">
         <ul className="account__list">
           <li className="account__item">
-            <Link to="/account/savings" className="account__link">
+            <Link to="savings" className="account__link">
               Savings
             </Link>
           </li>
           <li className="account__item">
-            <Link to="/account/savings" className="account__link">
+            <Link to="current" className="account__link">
               Current
             </Link>
           </li>
           <li className="account__item">
-            <Link to="/account/savings" className="account__link">
+            <Link to="/fixed" className="account__link">
               Corporate
             </Link>
           </li>
         </ul>
       </nav>
       <div className="account__container">
-        <Savings />
+        <Outlet />
       </div>
     </div>
   );

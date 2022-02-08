@@ -10,7 +10,6 @@ const {
     nextOfKinPhoneNumber,
     nextOfKinEmail,
     nepaBill,
-    identity,
     signature,
   },
 } = formModel;
@@ -24,6 +23,5 @@ export default {
   [nextOfKinPhoneNumber.name]: '',
   [nextOfKinEmail.name]: '',
   [nepaBill.name]: null,
-  [identity.name]: null,
   [signature.name]: null,
 };

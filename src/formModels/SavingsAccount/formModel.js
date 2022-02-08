@@ -49,12 +49,6 @@ export default {
         required: 'Nepa bill is required',
       },
     },
-    identity: {
-      name: 'identity',
-      error: {
-        required: 'Identity is required',
-      },
-    },
     signature: {
       name: 'signature',
       error: {

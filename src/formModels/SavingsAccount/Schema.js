@@ -11,7 +11,6 @@ const {
     nextOfKinPhoneNumber,
     nextOfKinEmail,
     nepaBill,
-    identity,
     signature,
   },
 } = formModel;
@@ -35,7 +34,6 @@ export default [
   // Credentials
   Yup.object().shape({
     [nepaBill.name]: Yup.mixed().nullable().required(`${nepaBill.error.required}`).label('Nepa bill'),
-    [identity.name]: Yup.mixed().nullable().required(`${identity.error.required}`).label('Identity'),
     [signature.name]: Yup.mixed().nullable().required(`${signature.error.required}`).label('Signature'),
   }),
 ];
