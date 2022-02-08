@@ -7,8 +7,22 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { configureStore, persistor } from './redux/configureStore';
+import api from './routes';
 
 const store = configureStore;
+
+api.interceptors.request.use((config) => {
+  const { auth: { token } } = store.getState();
+  const requestConfig = { ...config };
+  if (token) {
+    requestConfig.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
+api.interceptors.response.use((response) => response, (error) => {
+  throw error;
+});
 
 ReactDOM.render(
   <React.StrictMode>
