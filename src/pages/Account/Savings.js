@@ -2,6 +2,7 @@ import React from 'react';
 import { Formik, Form } from 'formik';
 import { connect } from 'react-redux';
 import PropType from 'prop-types';
+import { GrLinkNext, GrLinkPrevious } from 'react-icons/gr';
 import BioDataForm from '../../components/BioDataForm';
 import CredentialsForm from '../../components/CredentialsForm';
 import NextOfKinForm from '../../components/NextOfKinForm';
@@ -87,9 +88,9 @@ const Savings = ({ handleCreateAccount }) => {
           <Form>
             {renderStepForm(activeStep, setFieldValue)}
             <div className="account__btns">
-              {activeStep !== 0 && (<button type="button" className="btn-back" onClick={handleBack}>Back</button>) }
+              {activeStep !== 0 && (<button type="button" className="btn-back" onClick={handleBack}><GrLinkPrevious aria-label="prev" /></button>) }
               <button type="submit" className="btn-next">
-                { isLastStep ? 'Place order' : 'Next' }
+                { isLastStep ? 'Create' : <GrLinkNext aria-label="Next" /> }
               </button>
             </div>
           </Form>
