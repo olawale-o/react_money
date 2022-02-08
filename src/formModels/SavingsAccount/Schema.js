@@ -5,7 +5,7 @@ const {
   formField: {
     account,
     bank,
-    phoneNumber,
+    balance,
     nextOfKinFirstName,
     nextOfKinLastName,
     nextOfKinPhoneNumber,
@@ -21,7 +21,7 @@ export default [
   Yup.object().shape({
     [account.name]: Yup.string().required(account.error.required).label('Account type'),
     [bank.name]: Yup.string().required(bank.error.required).label('Bank name'),
-    [phoneNumber.name]: Yup.string().required(`${phoneNumber.error.required}`).label('Phone number'),
+    [balance.name]: Yup.string().required(`${balance.error.required}`).label('Amount'),
   }),
 
   // Next of kin

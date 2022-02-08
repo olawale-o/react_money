@@ -13,10 +13,10 @@ export default {
         required: 'Please select a bank',
       },
     },
-    phoneNumber: {
-      name: 'phoneNumber',
+    balance: {
+      name: 'balance',
       error: {
-        required: 'Phone number is required',
+        required: 'Amount is required',
       },
     },
     nextOfKinFirstName: {

@@ -4,7 +4,7 @@ const {
   formField: {
     account,
     bank,
-    phoneNumber,
+    balance,
     nextOfKinFirstName,
     nextOfKinLastName,
     nextOfKinPhoneNumber,
@@ -18,7 +18,7 @@ const {
 export default {
   [account.name]: '',
   [bank.name]: '',
-  [phoneNumber.name]: '',
+  [balance.name]: '',
   [nextOfKinFirstName.name]: '',
   [nextOfKinLastName.name]: '',
   [nextOfKinPhoneNumber.name]: '',
