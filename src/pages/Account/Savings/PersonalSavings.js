@@ -3,16 +3,16 @@ import { Formik, Form } from 'formik';
 import { connect } from 'react-redux';
 import PropType from 'prop-types';
 import { GrLinkNext, GrLinkPrevious } from 'react-icons/gr';
-import BioDataForm from '../../components/BioDataForm';
-import CredentialsForm from '../../components/CredentialsForm';
-import NextOfKinForm from '../../components/NextOfKinForm';
-import FormStepper from '../../components/FormStepper';
-import Schema from '../../formModels/SavingsAccount/Schema';
-import formInitialValues from '../../formModels/SavingsAccount/formInitialValues';
-import formModel from '../../formModels/SavingsAccount/formModel';
-import createAccount from '../../redux/account/account_async_action';
-import { createSavingsAccount } from '../../routes/account';
-import useNavigator from '../../helper';
+import BioDataForm from '../../../components/BioDataForm';
+import CredentialsForm from '../../../components/CredentialsForm';
+import NextOfKinForm from '../../../components/NextOfKinForm';
+import FormStepper from '../../../components/FormStepper';
+import Schema from '../../../formModels/Savings/Personal/Schema';
+import formInitialValues from '../../../formModels/Savings/Personal/formInitialValues';
+import formModel from '../../../formModels/Savings/Personal/formModel';
+import createAccount from '../../../redux/account/account_async_action';
+import { createSavingsAccount } from '../../../routes/account';
+import useNavigator from '../../../helper';
 
 const { formField } = formModel;
 
@@ -34,7 +34,7 @@ const renderStepForm = (step, setFieldValue) => {
   }
 };
 
-const Savings = ({ handleCreateAccount }) => {
+const PersonalSavings = ({ handleCreateAccount }) => {
   const { pushAndReplace } = useNavigator(true);
   const [activeStep, setActiveStep] = React.useState(0);
   const currentValidationSchema = Schema[activeStep];
@@ -57,7 +57,7 @@ const Savings = ({ handleCreateAccount }) => {
 
       console.log(values);
       const data = {
-        endPoint: '/account',
+        endPoint: '/account/savings/personal',
         body: formData,
       };
       handleCreateAccount(data, pushAndReplace);
@@ -104,8 +104,8 @@ const mapDispatchToProps = (dispatch) => ({
   handleCreateAccount: (data, push) => dispatch(createAccount(data, createSavingsAccount, push)),
 });
 
-export default connect(null, mapDispatchToProps)(Savings);
+export default connect(null, mapDispatchToProps)(PersonalSavings);
 
-Savings.propTypes = {
+PersonalSavings.propTypes = {
   handleCreateAccount: PropType.func.isRequired,
 };

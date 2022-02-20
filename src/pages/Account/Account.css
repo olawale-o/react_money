@@ -16,11 +16,13 @@
 .account__list {
   display: flex;
   justify-content: flex-end;
+  padding-right: 5rem;
 }
 
 .account__item {
   margin-right: 1rem;
   padding: 2rem 0;
+  position: relative;
 }
 
 .account__link {
@@ -31,6 +33,39 @@
   border-radius: 5px;
   transition: all 0.3s ease-in-out;
   color: var(--text-color);
+}
+
+.dropdown__list {
+  display: none;
+  visibility: hidden;
+}
+
+.account__item:hover > .dropdown__list {
+  display: block;
+  visibility: visible;
+}
+
+.dropdown__list {
+  position: absolute;
+  top: 5rem;
+  left: 1rem;
+  width: 100%;
+  /* z-index: 100; */
+  background-color: #fff;
+  transition: all 1s ease-in-out;
+}
+
+.dropdown__item {
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.dropdown__link{
+  font-size: 1.8rem;
+  width: 100%;
+  display: block;
+  padding: 0.8rem 0;
+  color: gray;
 }
 
 .account__container {
@@ -44,6 +79,7 @@
 .account-form__container {
   width: 100%;
   position: relative;
+  padding: 1rem 0;
 }
 
 .account-form__container form {
@@ -58,10 +94,13 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+  margin-top: 2rem;
 }
 
 .account__btns button {
-  padding: 0.8rem 1.5rem;
+  width: 40px;
+  height: 40px;
+  color: #fff;
 }
 
 .circular__progress-container {
@@ -97,6 +136,11 @@
   font-size: 1rem;
   position: relative;
   text-align: center;
+}
+
+.signatories__fields .add {
+  width: 100%;
+  text-align: right;
 }
 
 /* .stepper__container {

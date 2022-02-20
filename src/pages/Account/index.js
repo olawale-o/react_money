@@ -12,16 +12,45 @@ const Account = () => {
             <Link to="savings" className="account__link">
               Savings
             </Link>
+            <ul className="dropdown__list">
+              <li className="dropdown__item">
+                <Link to="savings/personal" className="dropdown__link">
+                  Personal
+                </Link>
+              </li>
+              <li className="dropdown__item">
+                <Link to="savings/create" className="dropdown__link">
+                  Kid
+                </Link>
+              </li>
+              <li className="dropdown__item">
+                <Link to="savings/joint" className="dropdown__link">
+                  Joint
+                </Link>
+              </li>
+            </ul>
           </li>
           <li className="account__item">
             <Link to="current" className="account__link">
               Current
             </Link>
-          </li>
-          <li className="account__item">
-            <Link to="/fixed" className="account__link">
-              Corporate
-            </Link>
+            <ul className="dropdown__list">
+              <li className="dropdown__item">
+                <Link to="savings/create" className="dropdown__link">
+                  Personal
+                </Link>
+              </li>
+              <li className="dropdown__item">
+                <Link to="savings/create" className="dropdown__link">
+                  Kid
+                </Link>
+              </li>
+              <li className="dropdown__item">
+                <Link to="savings/create" className="dropdown__link">
+                  Joint
+                </Link>
+              </li>
+            </ul>
           </li>
         </ul>
       </nav>
